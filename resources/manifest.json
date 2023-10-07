@@ -1,0 +1,27 @@
+{
+  "background_color": "#edf0f1",
+  "description": "Manage your TODOs",
+  "dir": "ltr",
+  "display": "fullscreen",
+  "name": "TODO list",
+  "orientation": "portrait",
+  "scope": "/",
+  "short_name": "TODO",
+  "start_url": "/",
+  "theme_color": "#25b99a",
+  "categories": [
+    "lifestyle",
+    "productivity",
+    "utilities"
+  ],
+  "screenshots": [],
+  "icons": [],
+  "shortcuts": [
+    {
+      "name": "Manage TODOs",
+      "url": "/",
+      "description": "Manage TODOs"
+    }
+  ],
+  "lang": "en"
+}
