@@ -1,5 +1,7 @@
 
-var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')):{
+navigator.serviceWorker.register('resources/js/service-worker.js');
+
+var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
   todo: [],
   completed: []
 };
@@ -12,7 +14,7 @@ renderTodoList();
 
 // User clicked on the add button
 // If there is any text inside the item field, add that text to the todo list
-document.getElementById('add').addEventListener('click', function() {
+document.getElementById('add').addEventListener('click', function () {
   var value = document.getElementById('item').value;
   if (value) {
     addItem(value);
@@ -26,7 +28,7 @@ document.getElementById('item').addEventListener('keydown', function (e) {
   }
 });
 
-function addItem (value) {
+function addItem(value) {
   addItemToDOM(value);
   document.getElementById('item').value = '';
 
@@ -84,7 +86,7 @@ function completeItem() {
   dataObjectUpdated();
 
   // Check if the item should be added to the completed list or to re-added to the todo list
-  var target = (id === 'todo') ? document.getElementById('completed'):document.getElementById('todo');
+  var target = (id === 'todo') ? document.getElementById('completed') : document.getElementById('todo');
 
   parent.removeChild(item);
   target.insertBefore(item, target.childNodes[0]);
@@ -92,7 +94,7 @@ function completeItem() {
 
 // Adds a new item to the todo list
 function addItemToDOM(text, completed) {
-  var list = (completed) ? document.getElementById('completed'):document.getElementById('todo');
+  var list = (completed) ? document.getElementById('completed') : document.getElementById('todo');
 
   var item = document.createElement('li');
   item.innerText = text;
