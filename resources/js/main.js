@@ -1,5 +1,5 @@
 
-// navigator.serviceWorker.register('resources/js/service-worker.js');
+navigator.serviceWorker.register('resources/js/service-worker.js');
 
 var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
   todo: [],
