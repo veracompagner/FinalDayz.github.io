@@ -31,7 +31,8 @@ function showNotification() {
   console.log("Called showNotification");
 }
 
+addEventListener("activate", (event) => {
+  showNotification();
 
-showNotification();
-
-setTimeout(showNotification, 10000);
+  setTimeout(showNotification, 10000);
+});
