@@ -16,3 +16,21 @@ workbox.routing.registerRoute(
     cacheName: CACHE
   })
 );
+
+function showNotification() {
+  const timestamp = new Date().getTime() + 20 * 1000; // now plus 5000ms
+
+  const options = {
+    tag: timestamp,
+    body: 'Hello World',
+    showTrigger: new TimestampTrigger(timestamp),
+    data: {
+      url: 'https://finaldayz.github.io/',
+    },
+    badge: './resources/icon.png',
+    icon: './resources/icon.png',
+  };
+  console.log("goint to call showNotification: ", { title: 'Demo Push Notification', options });
+  self.registration.showNotification('Demo Push Notification', options);
+  console.log("Called showNotification");
+}
