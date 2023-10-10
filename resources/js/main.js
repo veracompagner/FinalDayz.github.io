@@ -1,23 +1,33 @@
-async function startPWA() {
+let serviceWorkerRegistration = null;
 
+async function sendDelayedNotification() {
+  await window.Notification.requestPermission();
 
-  const requestNotificationPermission = async () => {
-    const permission = await window.Notification.requestPermission();
-    // value of permission can be 'granted', 'default', 'denied'
-    // granted: user has accepted the request
-    // default: user has dismissed the notification permission popup by clicking on x
-    // denied: user has denied the request.
-    if (permission !== 'granted') {
-      throw new Error('Permission not granted for Notification');
-    }
+  console.log("clicked button to send notification...");
+  serviceWorkerRegistration.active.postMessage({
+    type: 'SEND_NOTIFICATION'
+  });
+}
+
+async function requestNotificationPermission() {
+  const permission = await window.Notification.requestPermission();
+  if (permission !== 'granted') {
+    throw new Error('Permission not granted for Notification');
   }
+}
+
+async function startPWA() {
 
   const permission = await requestNotificationPermission();
   console.log(permission);
 
-  const registerSW = await navigator.serviceWorker.register('resources/js/service-worker.js');
 
-  console.log(registerSW);
+  navigator.serviceWorker.register('resources/js/service-worker.js')
+    .then(registration => {
+      serviceWorkerRegistration = registration;
+    })
+    .catch(err => console.err(err));
+
 }
 
 startPWA();

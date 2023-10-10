@@ -4,9 +4,13 @@ const CACHE = "pwabuilder-offline";
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
-self.addEventListener("message", (event) => {
+addEventListener("message", (event) => {
   if (event.data && event.data.type === "SKIP_WAITING") {
     self.skipWaiting();
+  }
+  if(event?.data?.type === 'SEND_NOTIFICATION') {
+    console.log("Going to send notification...");
+    setTimeout(showNotification, 10000);
   }
 });
 
@@ -31,8 +35,8 @@ function showNotification() {
   console.log("Called showNotification");
 }
 
-addEventListener("activate", (event) => {
-  showNotification();
+// addEventListener("activate", (event) => {
+//   showNotification();
 
-  setTimeout(showNotification, 10000);
-});
+//   setTimeout(showNotification, 10000);
+// });

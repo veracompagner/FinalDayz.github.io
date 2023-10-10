@@ -253,3 +253,17 @@ ul.todo#completed:after {
   font-size: 12px;
   color: #aaa;
 }
+
+.send-delay-notification:focus {
+  filter: drop-shadow(-6px 1px 8px #000000);
+}
+
+.send-delay-notification {
+  padding: 7px;
+  border-radius: 4px;
+  border: none;
+  background-color: #25b99a;
+  cursor: pointer;
+  font-size: 15px;
+  color: black;
+}
