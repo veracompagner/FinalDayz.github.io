@@ -18,12 +18,9 @@ workbox.routing.registerRoute(
 );
 
 function showNotification() {
-  const timestamp = new Date().getTime() + 20 * 1000; // now plus 5000ms
-
   const options = {
     tag: timestamp,
     body: 'Hello World',
-    showTrigger: new TimestampTrigger(timestamp),
     data: {
       url: 'https://finaldayz.github.io/',
     },
@@ -34,3 +31,8 @@ function showNotification() {
   self.registration.showNotification('Demo Push Notification', options);
   console.log("Called showNotification");
 }
+
+
+showNotification();
+
+setTimeout(showNotification, 10000);
