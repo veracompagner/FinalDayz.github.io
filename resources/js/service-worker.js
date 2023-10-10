@@ -19,7 +19,6 @@ workbox.routing.registerRoute(
 
 function showNotification() {
   const options = {
-    tag: timestamp,
     body: 'Hello World',
     data: {
       url: 'https://finaldayz.github.io/',
