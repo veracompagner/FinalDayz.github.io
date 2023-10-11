@@ -1,25 +1,13 @@
-let serviceWorkerRegistration = null;
 
-async function sendDelayedNotification() {
-  // First be sure to request permission
-  const permission = await window.Notification.requestPermission();
-  if (permission !== 'granted') {
-    return;
-  }
-
-  // Send message to service worker to send a notification
-  serviceWorkerRegistration.active.postMessage({
-    type: 'SEND_NOTIFICATION'
-  });
-}
 
 // Register service worker
 navigator.serviceWorker.register('resources/js/service-worker.js')
   .then(registration => {
-    serviceWorkerRegistration = registration;
+    console.log('Service-worker succesvol geregistreerd');
   })
   .catch(err => console.err(err));
 
+  
 
 var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
   todo: [],
