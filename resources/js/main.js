@@ -1,36 +1,25 @@
 let serviceWorkerRegistration = null;
 
 async function sendDelayedNotification() {
-  await window.Notification.requestPermission();
+  // First be sure to request permission
+  const permission = await window.Notification.requestPermission();
+  if (permission !== 'granted') {
+    return;
+  }
 
-  console.log("clicked button to send notification...");
+  // Send message to service worker to send a notification
   serviceWorkerRegistration.active.postMessage({
     type: 'SEND_NOTIFICATION'
   });
 }
 
-async function requestNotificationPermission() {
-  const permission = await window.Notification.requestPermission();
-  if (permission !== 'granted') {
-    throw new Error('Permission not granted for Notification');
-  }
-}
+// Register service worker
+navigator.serviceWorker.register('resources/js/service-worker.js')
+  .then(registration => {
+    serviceWorkerRegistration = registration;
+  })
+  .catch(err => console.err(err));
 
-async function startPWA() {
-
-  const permission = await requestNotificationPermission();
-  console.log(permission);
-
-
-  navigator.serviceWorker.register('resources/js/service-worker.js')
-    .then(registration => {
-      serviceWorkerRegistration = registration;
-    })
-    .catch(err => console.err(err));
-
-}
-
-startPWA();
 
 var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
   todo: [],

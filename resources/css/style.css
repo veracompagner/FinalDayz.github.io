@@ -254,8 +254,8 @@ ul.todo#completed:after {
   color: #aaa;
 }
 
-.send-delay-notification:focus {
-  filter: drop-shadow(-6px 1px 8px #000000);
+.send-delay-notification:active {
+  filter: drop-shadow(-2px -2px 8px #b0b0b0);
 }
 
 .send-delay-notification {
