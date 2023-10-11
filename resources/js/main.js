@@ -1,13 +1,7 @@
 
-
-// Register service worker
-navigator.serviceWorker.register('resources/js/service-worker.js')
-  .then(registration => {
-    console.log('Service-worker succesvol geregistreerd');
-  })
-  .catch(err => console.err(err));
-
+// Register service worker hier...
   
+
 
 var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
   todo: [],
