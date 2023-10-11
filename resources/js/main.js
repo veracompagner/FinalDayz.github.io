@@ -1,6 +1,6 @@
 
 // Register service worker hier...
-  
+
 
 
 var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
