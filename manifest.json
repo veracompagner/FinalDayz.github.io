@@ -1,14 +1,34 @@
 {
-  "name": "My pwa",
-  "short_name": "Progressive",
+  "background_color": "#edf0f1",
+  "description": "Manage your TODOs",
+  "dir": "ltr",
+  "display": "fullscreen",
+  "name": "TODO list",
+  "orientation": "portrait",
+  "scope": "/",
+  "short_name": "TODOs",
   "start_url": "/",
-  "display": "standalone",
-  "background_color": "#fff",
-  "description": "A readable Hacker News app.",
+  "theme_color": "#25b99a",
+  "categories": [
+    "lifestyle",
+    "productivity",
+    "utilities"
+  ],
+  "screenshots": [],
   "icons": [
+        {
+          "src": "icon.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "any"
+        }
+  ],
+  "shortcuts": [
     {
-      "src": "rescources/icon.png",
-      "sizes": "48x48"
+      "name": "Manage TODOs",
+      "url": "/",
+      "description": "Manage TODOs"
     }
-  ]
+  ],
+  "lang": "en"
 }
